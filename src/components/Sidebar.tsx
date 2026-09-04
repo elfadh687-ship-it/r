@@ -9,7 +9,8 @@ import {
   ExternalLink, 
   Link as LinkIcon,
   X,
-  Sparkles
+  Sparkles,
+  Cloud
 } from 'lucide-react';
 import { User, SupabaseConfigStatus } from '../types';
 
@@ -20,6 +21,7 @@ interface SidebarProps {
   onOpenCreateModal: () => void;
   onOpenAuthModal: () => void;
   onOpenDbModal: () => void;
+  onOpenCloudflareModal: () => void;
   onLogout: () => void;
   dbStatus: SupabaseConfigStatus | null;
   isOpenMobile: boolean;
@@ -32,6 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setActiveTab,
   onOpenAuthModal,
   onOpenDbModal,
+  onOpenCloudflareModal,
   onLogout,
   dbStatus,
   isOpenMobile,
@@ -145,6 +148,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 : 'bg-slate-100 text-slate-600'
             }`}>
               {dbStatus?.mode === 'supabase' ? 'Supabase' : 'Active'}
+            </span>
+          </button>
+
+          {/* Cloudflare Hosting Ready Button */}
+          <button
+            id="nav-cloudflare-btn"
+            onClick={() => {
+              onOpenCloudflareModal();
+              onCloseMobile();
+            }}
+            className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-500 hover:bg-orange-50/70 hover:text-orange-950 rounded-xl transition group"
+          >
+            <div className="flex items-center">
+              <Cloud className="w-5 h-5 mr-3 text-orange-500 group-hover:text-orange-600 transition" />
+              <span>Cloudflare</span>
+            </div>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700">
+              Ready
             </span>
           </button>
         </nav>

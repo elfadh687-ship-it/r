@@ -5,7 +5,8 @@ import {
   RefreshCw, 
   MapPin, 
   ExternalLink,
-  Sparkles
+  Sparkles,
+  Cloud
 } from 'lucide-react';
 import { User, SupabaseConfigStatus } from '../types';
 
@@ -16,6 +17,7 @@ interface HeaderProps {
   onOpenCreateModal: () => void;
   onOpenAuthModal: () => void;
   onOpenDbModal: () => void;
+  onOpenCloudflareModal?: () => void;
   onLogout: () => void;
   dbStatus: SupabaseConfigStatus | null;
   onToggleMobileMenu?: () => void;
@@ -26,6 +28,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   activeTab,
   onOpenCreateModal,
+  onOpenCloudflareModal,
   onToggleMobileMenu,
   onRefresh,
   isLoading,
@@ -55,7 +58,19 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
+        {onOpenCloudflareModal && (
+          <button
+            id="header-cloudflare-btn"
+            onClick={onOpenCloudflareModal}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-orange-50 hover:bg-orange-100 text-orange-800 border border-orange-200/80 rounded-xl text-xs font-semibold transition"
+            title="Lihat Konfigurasi Hosting Cloudflare Pages"
+          >
+            <Cloud className="w-3.5 h-3.5 text-orange-600" />
+            <span>Cloudflare Ready</span>
+          </button>
+        )}
+
         {onRefresh && (
           <button
             onClick={onRefresh}

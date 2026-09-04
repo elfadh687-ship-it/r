@@ -10,6 +10,7 @@ import { QRCodeModal } from './components/QRCodeModal';
 import { DeleteConfirmModal } from './components/DeleteConfirmModal';
 import { SupabaseModal } from './components/SupabaseModal';
 import { AuthModal } from './components/AuthModal';
+import { CloudflareModal } from './components/CloudflareModal';
 import { Shortlink, User, AnalyticsData, SupabaseConfigStatus } from './types';
 import { 
   CheckCircle2, 
@@ -45,6 +46,7 @@ export default function App() {
   const [deletingShortlink, setDeletingShortlink] = useState<Shortlink | null>(null);
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isDbModalOpen, setIsDbModalOpen] = useState(false);
+  const [isCloudflareOpen, setIsCloudflareOpen] = useState(false);
 
   // Show temporary toast feedback
   const showToast = (msg: string) => {
@@ -199,6 +201,7 @@ export default function App() {
         onOpenCreateModal={() => setIsCreateOpen(true)}
         onOpenAuthModal={() => setIsAuthOpen(true)}
         onOpenDbModal={() => setIsDbModalOpen(true)}
+        onOpenCloudflareModal={() => setIsCloudflareOpen(true)}
         onLogout={handleLogout}
         dbStatus={dbStatus}
         isOpenMobile={isMobileSidebarOpen}
@@ -215,6 +218,7 @@ export default function App() {
           onOpenCreateModal={() => setIsCreateOpen(true)}
           onOpenAuthModal={() => setIsAuthOpen(true)}
           onOpenDbModal={() => setIsDbModalOpen(true)}
+          onOpenCloudflareModal={() => setIsCloudflareOpen(true)}
           onLogout={handleLogout}
           dbStatus={dbStatus}
           onToggleMobileMenu={() => setIsMobileSidebarOpen(true)}
@@ -353,6 +357,11 @@ export default function App() {
         isOpen={isDbModalOpen}
         onClose={() => setIsDbModalOpen(false)}
         status={dbStatus}
+      />
+
+      <CloudflareModal
+        isOpen={isCloudflareOpen}
+        onClose={() => setIsCloudflareOpen(false)}
       />
 
       <AuthModal
