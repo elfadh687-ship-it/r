@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.70);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.60);
+    box-shadow: 0 20px 25px -5px rgba(226, 232, 240, 0.5), 0 8px 10px -6px rgba(226, 232, 240, 0.3);
+  }
+
+  .glass-card-hover {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glass-card-hover:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 92, 83, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 25px 30px -5px rgba(0, 92, 83, 0.08), 0 12px 15px -8px rgba(0, 92, 83, 0.05);
+  }
+
+  .glass-modal {
+    background-color: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+  }
+
+  .gradient-marine-sage {
+    background: linear-gradient(135deg, #005C53 0%, #0d756b 60%, #70A9A1 100%);
+  }
+
+  .gradient-marine-sage-subtle {
+    background: linear-gradient(135deg, rgba(0, 92, 83, 0.06) 0%, rgba(159, 193, 49, 0.09) 100%);
+  }
+
+  .gradient-btn {
+    background: linear-gradient(to right, #005C53 0%, #70A9A1 100%);
+    box-shadow: 0 10px 15px -3px rgba(0, 92, 83, 0.20), 0 4px 6px -4px rgba(0, 92, 83, 0.15);
+  }
+  .gradient-btn:hover {
+    background: linear-gradient(to right, #004d45 0%, #5d928b 100%);
+    box-shadow: 0 14px 20px -3px rgba(0, 92, 83, 0.28), 0 6px 8px -4px rgba(0, 92, 83, 0.20);
+  }
+}
+

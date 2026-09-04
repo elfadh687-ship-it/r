@@ -1,0 +1,7 @@
+{
+  "name": "ReviewLink - Google Maps Shortener & QR Generator",
+  "description": "Dynamic shortlink and QR code generator for Google Maps reviews with analytics, real-time Place ID management, and soft glassmorphic UI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
